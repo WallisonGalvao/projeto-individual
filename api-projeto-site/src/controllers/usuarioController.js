@@ -63,6 +63,11 @@ function cadastrar(req, res) {
     var nome = req.body.nome;
     var email = req.body.email;
     var senha = req.body.senha;
+    var telefone = req.body.telefone;
+    var dtNascimento = req.body.dtNascimento;
+    var cidade = req.body.cidade;
+    var vertenteEscolhida = req.body.vertenteEscolhida;
+    var djEscolhido = req.body.djEscolhido;
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -70,6 +75,16 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (telefone == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
+    } else if (dtNascimento == undefined) {
+        res.status(400).send("Sua data de nascimento está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("Sua cidade está undefined!");
+    } else if (vertenteEscolhida == undefined) {
+        res.status(400).send("Sua vertenteEscolhida está undefined!");
+    } else if (djEscolhido == undefined) {
+        res.status(400).send("O dj está undefined!");
     } else {
         usuarioModel.cadastrar(nome, email, senha)
         .then(
