@@ -2,21 +2,30 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background: #000;
+    
 }
 
 .header{
     width: 100%;
     height: 100vh;
-    background-image: url(imgs/unity.jpg);
+    background-image: url(imgs/afterlife.jpg);
     background-position: center;
     background-size: cover;
+  
+}
+
+.active{
+    font-weight: 600;
 }
 
 nav{
     width: 100%;
     padding: 20px 0;
     text-align: center;
+    background: transparent;
+    
 }
 
 .logo{
@@ -24,12 +33,14 @@ nav{
     margin: 20px 0;
     cursor: pointer;
     color: white;
+    background: transparent;
 }
 
 nav ul {
     background: transparent;
     width: 100%;
     margin-top: 10px;
+    
 }
 
 nav ul li{
@@ -37,14 +48,66 @@ nav ul li{
     list-style: none;
     margin: 20px 30px;
     color: #fff;
+    background: transparent;
+    
 }
 
+nav ul li:hover{
+    background: #e5e5e520;
+    width: 5rem;
+    border-radius: 1rem;
+    /* color: #000; */
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+nav ul li a{
+    text-decoration: none;
+    background: transparent;
+    color: #fff;
+}
 .text {
     padding: 20px 8%;
 }
 
-nav.stick{
+nav.sticky{
     position: fixed;
-    top: 0;
-    left: 0;
+    /* top: 0; */
+    /* left: 0; */
+    padding: 0.2rem 8%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 1s;
+}
+
+nav.sticky ul {
+    width: auto;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    
+}
+
+.content div p {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.banner-cadastro {
+    display: flex;
+    
+    color: #fff;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.container .bloco-medio  h2 {
+    
 }
