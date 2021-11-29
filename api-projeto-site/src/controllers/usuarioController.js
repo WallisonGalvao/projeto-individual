@@ -61,10 +61,10 @@ function entrar (req, res) {
 
 function cadastrar(req, res) {
     var nome = req.body.nome;
+    var sobrenome = req.body.sobrenome;
     var email = req.body.email;
     var senha = req.body.senha;
     var telefone = req.body.telefone;
-    var dtNascimento = req.body.dtNascimento;
     var cidade = req.body.cidade;
     var vertenteEscolhida = req.body.vertenteEscolhida;
     var djEscolhido = req.body.djEscolhido;
@@ -86,7 +86,7 @@ function cadastrar(req, res) {
     } else if (djEscolhido == undefined) {
         res.status(400).send("O dj está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, sobrenome, email, senha, telefone, cidade)
         .then(
             function (resultado) {
                 res.json(resultado);

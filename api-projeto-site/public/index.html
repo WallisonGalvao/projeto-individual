@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,27 +9,29 @@
     <link rel="stylesheet" href="./css/styleW.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="header">
-      
-      <nav id="navbar">
-         <img src="./assets/imgsW/WeRaveLogo.png" alt="" class="logo">
 
-          <ul id="menu">
-              <li class="active">HOME</li>
-              <li>ABOUT</li>
-              <li><a href="cadastro.html">SIGN UP</a></li>
-              <li>SIGN IN</li>
-              <li>CONTACT</li>
-          </ul>
-      </nav>
+        <nav id="navbar">
+            <img src="./assets/imgsW/WeRaveLogo.png" alt="" class="logo">
 
-      
+            <ul id="menu">
+                <li class="active">HOME</li>
+                <li>ABOUT</li>
+                <li><a href="cadastro.html">SIGN UP</a></li>
+                <li>SIGN IN</li>
+                <li>CONTACT</li>
+            </ul>
+        </nav>
+
+
     </div>
     <div class="content">
-       <div class="container">
+        <div class="container">
 
             <div>
                 <p>
@@ -36,36 +39,43 @@
                 </p>
 
                 <p>
-                    A história da música eletrônica tem início no ano de -inserir ano- 
+                    A história da música eletrônica tem início no ano de -inserir ano-
                 </p>
             </div>
             <br>
             <br>
-            
-          
-            <div>
-                <p>O objetivo aqui é mostrar as diferentes vertentes que a música eletrônica possui</p>
-            </div>
-       </div>
-   </div>
 
-    
-   
-    
+
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <h4>Feito com amor por um aluno BandTec &copy; 2021</h4>
+        </div>
+    </div>
+
+
+
+
 
     <script>
         var navbar = document.getElementById("navbar");
         var menu = document.getElementById("menu");
 
-        window.onscroll = function(){
-            if(window.pageYOffset >= menu.offsetTop){
+        window.onscroll = function () {
+            if (window.pageYOffset >= menu.offsetTop) {
 
-            navbar.classList.add("sticky");
+                navbar.classList.add("sticky");
             }
-            else{
-                navbar.classList.remove("sticky"); 
+            else {
+                navbar.classList.remove("sticky");
             }
         }
     </script>
 </body>
+
 </html>
