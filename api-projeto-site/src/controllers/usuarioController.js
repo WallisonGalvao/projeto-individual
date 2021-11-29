@@ -86,7 +86,7 @@ function cadastrar(req, res) {
     } else if (djEscolhido == undefined) {
         res.status(400).send("O dj está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, sobrenome, email, senha, telefone, cidade)
+        usuarioModel.cadastrar(nome, sobrenome, email, senha, telefone, cidade, vertenteEscolhida, djEscolhido)
         .then(
             function (resultado) {
                 res.json(resultado);

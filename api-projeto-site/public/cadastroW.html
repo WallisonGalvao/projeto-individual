@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We Rave | Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styleW.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -53,9 +53,54 @@
                             <input name="telefone" type="text" placeholder="(DDD)xxxxx-xxxx"> <br>
 
                             Cidade:
-                            <input type="text" name="cidade" placeholder="Ex: São Paulo">
+                            <input type="text" name="cidade" placeholder="Ex: São Paulo"> <br>
 
+                            Selecione uma vertente:
+                            <select name="vertenteEscolhida" id="">
+                                <option hidden>Escolha uma vertente</option>
+                                <option value="techno">Techno</option>
+                                <option value="minimal-techno">Minimal Techno</option>
+                                <option value="house">House</option>
+                                <option value="deep-house">Deep House</option>
+                                <option value="tech-house">Tech House</option>
+                                <option value="prog-house">Progressive House</option>
+                                <option value="dubstep">Dubstep</option>
+                                <option value="trance">Trance</option>
+                                <option value="psy-trance">Psy Trance</option>
+                            </select> <br>
+
+                            <select name="djEscolhido" id="">
+                                <option >Escolha um DJ</option>
+                                <option value="charlotteDeWitte">Charlotte De Witte</option>
+                                <option value="amelieLens">Amelie Lens</option>
+                                <option value="taleOfUs">Tale of Us</option>
+                                <option value="artbat">ARTBAT</option>
+                                <option value="mathame">Mathame</option>
+                                <option value="whoMadeWho">WhoMadeWho</option>
+                                <option value="borisBrejcha">Boris Brejcha</option>
+                                <option value="hozho">Hozho</option>
+                                <option value="jamieJones">Jamie Jones</option>
+                                <option value="michaelBibi">Michael Bibi</option>
+                                <option value="fish">FISH</option>
+                                <option value="martinGarrix">Martin Garrix</option>
+                                <option value="solomun">Solomun</option>
+                                <option value="ninaKraviz">Nina Kraviz</option>
+                                <option value="skrillex">skrillex</option>
+                                <option value="borgore">Borgore</option>
+                                <option value="neelix">Neelix</option>
+                                <option value="tiesto">Tiesto</option>
+                                <option value="alok">Alok</option>
+                            </select> <br>
+
+                            <button class="btn">Cadastrar</button>
                         </form>
+                    </div>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./assets/circle-loading.gif" id="loading-gif">
+                    </div>
+    
+                    <div id="div_erros_login">
+                        
                     </div>
                 </div>
             </div>
@@ -106,9 +151,11 @@
         var confirmacaoSenha = formulario.get("confirmacao-senha");
         var telefone = formulario.get("telefone");
         var cidade = formulario.get("cidade");
+        var vertenteEscolhida = formulario.get("vertenteEscolhida");
+        var djEscolhido = formulario.get("djEscolhido");
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || telefone == "" || cidade == "") {
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || telefone == "" || cidade == "" || vertenteEscolhida == "" || djEscolhido == "") {
 
             window.alert("Preencha todos os campos para prosseguir!");
             if (nome == "") {
@@ -128,6 +175,12 @@
             }
             if (cidade == "") {
                 console.log('cidade está em branco')
+            }
+            if (vertenteEscolhida == "") {
+                console.log('vertente está em branco')
+            }
+            if (djEscolhido == "") {
+                console.log('dj está em branco')
             }
             finalizarAguardar();
             return false;
