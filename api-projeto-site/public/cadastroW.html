@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We Rave | Home</title>
+    <script src="./assets/js/funcoes.js"></script>
     <link rel="stylesheet" href="css/styleW.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,7 @@
     <div class="header">
 
         <nav id="navbar">
-            <img src="./imgs/WeRaveLogo.png" alt="" class="logo">
+            <img src="./assets/imgsW/WeRaveLogo.png" alt="" class="logo">
 
             <ul id="menu">
                 <li> <a href="index.html">HOME</a> </li>
@@ -81,7 +82,7 @@
                                 <option value="hozho">Hozho</option>
                                 <option value="jamieJones">Jamie Jones</option>
                                 <option value="michaelBibi">Michael Bibi</option>
-                                <option value="fish">FISH</option>
+                                <option value="fisher">FISH</option>
                                 <option value="martinGarrix">Martin Garrix</option>
                                 <option value="solomun">Solomun</option>
                                 <option value="ninaKraviz">Nina Kraviz</option>
@@ -151,8 +152,8 @@
         var confirmacaoSenha = formulario.get("confirmacao-senha");
         var telefone = formulario.get("telefone");
         var cidade = formulario.get("cidade");
-        var vertenteEscolhida = formulario.get("vertenteEscolhida");
-        var djEscolhido = formulario.get("djEscolhido");
+        var vertenteEscolhida = formulario.get("vertenteEscolhida.value");
+        var djEscolhido = formulario.get("djEscolhido.value");
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || telefone == "" || cidade == "" || vertenteEscolhida == "" || djEscolhido == "") {
@@ -209,7 +210,7 @@
 
 
 
-        fetch("/usuarios/cadastrar", {
+        fetch(`/usuarios/cadastrar/${vertenteEscolhida}/${djEscolhido}`, {
             method: "POST",
             body: formulario
         }).then(function (resposta) {
