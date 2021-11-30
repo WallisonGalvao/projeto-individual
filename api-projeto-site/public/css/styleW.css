@@ -3,16 +3,17 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background: #000;
-    background-image: url(../assets/imgsW/afterlife.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+   
+    
 }
 
 .header{
     width: 100%;
     height: 100vh;
     background-position: center;
+    background-image: url(../assets/imgsW/afterlife.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
   
 }
 
@@ -102,18 +103,21 @@ nav.sticky ul {
     display: flex;
     background: transparent;
     color: #fff;
-    /* text-align: center; */
+     text-align: center; 
     align-items: center;
-    justify-content: center;
+    
     
 }
 
 #form_cadastro {
-    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .container .bloco-medio  h2 {
-    
+    font-size: 2.3rem;
 }
 
 .loading-div {

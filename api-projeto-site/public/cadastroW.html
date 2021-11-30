@@ -59,38 +59,38 @@
                             Selecione uma vertente:
                             <select name="vertenteEscolhida" id="">
                                 <option hidden>Escolha uma vertente</option>
-                                <option value="techno">Techno</option>
-                                <option value="minimal-techno">Minimal Techno</option>
-                                <option value="house">House</option>
-                                <option value="deep-house">Deep House</option>
-                                <option value="tech-house">Tech House</option>
-                                <option value="prog-house">Progressive House</option>
-                                <option value="dubstep">Dubstep</option>
-                                <option value="trance">Trance</option>
-                                <option value="psy-trance">Psy Trance</option>
+                                <option value="1">Techno</option>
+                                <option value="2">Minimal Techno</option>
+                                <option value="3">House</option>
+                                <option value="4">Deep House</option>
+                                <option value="5">Tech House</option>
+                                <option value="6">Progressive House</option>
+                                <option value="7">Dubstep</option>
+                                <option value="8">Trance</option>
+                                <option value="9">Psy Trance</option>
                             </select> <br>
 
                             <select name="djEscolhido" id="">
                                 <option >Escolha um DJ</option>
-                                <option value="charlotteDeWitte">Charlotte De Witte</option>
-                                <option value="amelieLens">Amelie Lens</option>
-                                <option value="taleOfUs">Tale of Us</option>
-                                <option value="artbat">ARTBAT</option>
-                                <option value="mathame">Mathame</option>
-                                <option value="whoMadeWho">WhoMadeWho</option>
-                                <option value="borisBrejcha">Boris Brejcha</option>
-                                <option value="hozho">Hozho</option>
-                                <option value="jamieJones">Jamie Jones</option>
-                                <option value="michaelBibi">Michael Bibi</option>
-                                <option value="fisher">FISH</option>
-                                <option value="martinGarrix">Martin Garrix</option>
-                                <option value="solomun">Solomun</option>
-                                <option value="ninaKraviz">Nina Kraviz</option>
-                                <option value="skrillex">skrillex</option>
-                                <option value="borgore">Borgore</option>
-                                <option value="neelix">Neelix</option>
-                                <option value="tiesto">Tiesto</option>
-                                <option value="alok">Alok</option>
+                                <option value="1">Charlotte De Witte</option>
+                                <option value="2">Amelie Lens</option>
+                                <option value="3">Tale of Us</option>
+                                <option value="4">ARTBAT</option>
+                                <option value="5">Mathame</option>
+                                <option value="6">WhoMadeWho</option>
+                                <option value="7">Boris Brejcha</option>
+                                <option value="8">Hozho</option>
+                                <option value="9">Jamie Jones</option>
+                                <option value="10">Michael Bibi</option>
+                                <option value="11">FISHER</option>
+                                <option value="12">Martin Garrix</option>
+                                <option value="13">Solomun</option>
+                                <option value="14">Nina Kraviz</option>
+                                <option value="15">skrillex</option>
+                                <option value="16">Borgore</option>
+                                <option value="17">Neelix</option>
+                                <option value="18">Tiesto</option>
+                                <option value="19">Alok</option>
                             </select> <br>
 
                             <button class="btn">Cadastrar</button>
@@ -152,8 +152,8 @@
         var confirmacaoSenha = formulario.get("confirmacao-senha");
         var telefone = formulario.get("telefone");
         var cidade = formulario.get("cidade");
-        var vertenteEscolhida = formulario.get("vertenteEscolhida.value");
-        var djEscolhido = formulario.get("djEscolhido.value");
+        var vertenteEscolhida = formulario.get("vertenteEscolhida");
+        var djEscolhido = formulario.get("djEscolhido");
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || telefone == "" || cidade == "" || vertenteEscolhida == "" || djEscolhido == "") {

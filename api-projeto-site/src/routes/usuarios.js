@@ -11,7 +11,7 @@ router.get("/listar", function(req, res) {
     usuarioController.listar(req, res);
 });
 
-router.post("/cadastrar/:vertenteEscolhida.value/:djEscolhido.value", function(req, res) {
+router.post("/cadastrar/:vertenteEscolhida/:djEscolhido", function(req, res) {
     usuarioController.cadastrar(req, res);
 })
 
