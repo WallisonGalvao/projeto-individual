@@ -9,8 +9,8 @@
 
     <script src="./assets/js/funcoes.js"></script>
 
-    <link rel="icon" href="./assets/icon/favicon.ico">
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="icon" href="./assets/icon/favicon.ico"> -->
+    <link rel="stylesheet" href="./css/styleW.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,26 +22,20 @@
     <!--Header-->
 
     <div class="header">
-        <div class="container">
-            <h1>AcquaTec</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="./index.html">
-                        Inicial
-                    </a>
-                </li>
-                <li>
-                    <a href="./sobre.html">Sobre</a>    
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="./login.html">Login</a>
-                </li>
-                <li>
-                    <a href="./cadastro.html">Cadastro</a>
-                </li>
+
+        <nav id="navbar">
+            <img src="./assets/imgsW/WeRaveLogo.png" alt="" class="logo">
+
+            <ul id="menu">
+                <li ><a href="login.html">HOME</a></li>
+                <li>ABOUT</li>
+                <li><a href="cadastroW.html">SIGN UP</a></li>
+                <li class="active">SIGN IN</li>
+                <li>CONTACT</li>
             </ul>
-        </div>
+        </nav>
+
+
     </div>
 
 
@@ -79,19 +73,11 @@
     <!--footer inicio-->
     <div class="footer">
         <div class="container">
-            <h4>Feito com amor por um aluno BandTec &copy; 2021</h4>
+            <h4>WE RAVE &copy; 2021</h4>
         </div>
     </div>
 
-    <!-- modal? -->
-<!-- 
-    <div id="div_modal" class="div-modal">
-        <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
-        </div>
-        <div id="modal_container" class="modal-container">
-            <button onclick="fecharModal()">fechar modal</button>
-        </div>
-    </div> -->
+
 
 
 
@@ -153,7 +139,10 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.VERTENTE = json.fkVertente;
+                    sessionStorage.DJ = json.fkDJ;
+
 
                     setTimeout(function () {
                         window.location = "./dashboard/dashboard.html";
