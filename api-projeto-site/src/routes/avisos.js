@@ -31,4 +31,12 @@ router.put("/avisos/editar/:idAviso", function (req, res) {
     avisoController.editar(req, res);
 });
 
+router.get("/cadastros", function (req, res) {
+    avisoController.cadastros(req, res);
+})
+
+router.get("/djsPopulares", function (req, res) {
+    avisoController.djsPopulares(req, res);
+})
+
 module.exports = router;

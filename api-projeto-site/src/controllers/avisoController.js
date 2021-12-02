@@ -94,10 +94,61 @@ function publicar(req, res) {
     }
 }
 
+function cadastros(req, res) {
+
+    avisoModel.cadastros()
+    .then(
+        function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }
+    )
+    .catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "Houve um erro ao buscar os avisos: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function djsPopulares(req, res) {
+
+    avisoModel.djsPopulares()
+    .then(
+        function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }
+    )
+    .catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "Houve um erro ao buscar os avisos: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+
 module.exports = {
     testar,
     listar,
     listarPorUsuario,
     pesquisarDescricao,
-    publicar
+    publicar,
+    cadastros,
+    djsPopulares
 }

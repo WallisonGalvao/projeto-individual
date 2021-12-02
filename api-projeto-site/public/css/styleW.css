@@ -10,8 +10,8 @@
 body {
     
     
-    background: #000;
-    /* background-image: url(../assets/imgsW/afterlife.jpg); */
+    /* background: #000; */
+    background-image: url(../assets/imgsW/afterlife.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -126,7 +126,7 @@ nav.sticky ul {
 
 .content div p {
     color: #fff;
-    font-size: 25px;
+    font-size: 22px;
     padding: 10px;
 }
 
@@ -213,8 +213,9 @@ button {
     cursor: pointer;
 }
 
-.banner-login .imgDJ {
+.imgDJ {
     width: 40vw;
+    border-radius: 5px;
 }
 
 /* FIM LOGIN */
@@ -222,7 +223,7 @@ button {
 /* rodapé */
 
 .footer {
-    margin-top: 235px;
+    /* margin-top: 235px; */
     background-color: #000;
     height: 50px;
     width: 100%;

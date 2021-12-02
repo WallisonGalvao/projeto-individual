@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ's mais populares</title>
+
+
+    <link rel="stylesheet" href="../css/styleW.css">
+    <link rel="stylesheet" href="dashboards.css">
+    <script src="../assets/js/funcoes.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+</head>
+
+<body onload="usuariosCadastrados()">
+
+    <div class="header">
+
+        <nav id="navbar">
+            <img src="../assets/imgsW/WeRaveLogo.png" alt="" class="logo">
+
+            <ul id="menu">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../cadastroW.html">SIGN UP</a></li>
+                <li><a href="../login.html">SIGN IN</a></li>
+                <li>CONTACT</li>
+                <li>
+                    <div class="btn-logout" onclick="limparSessao()">
+                        <h3>SAIR</h3>
+                    </div>
+                </li>
+            </ul>
+
+
+        </nav>
+
+
+    </div>
+
+    <div class="container">
+
+        <div class="dashDJS" style="width:50vw">
+            <canvas id="djsPopulares" ></canvas>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+function usuariosCadastrados() {
+    
+
+fetch(`/avisos/djsPopulares`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta)
+            
+            
+            plotarGrafico(resposta)
+        })
+} else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+
+function plotarGrafico(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-qtd',
+                    label: 'DJs',
+                    borderColor: '#fff',
+                    backgroundColor: '#fff',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            
+            dados.labels.push(registro.nomeDJ);
+            dados.datasets[0].data.push(registro.contador);
+        }
+
+        console.log(JSON.stringify(dados));
+        
+        var ctx = djsPopulares.getContext('2d');
+        window.grafico_linha = Chart.Bar(ctx, {
+            data: dados,
+            //Configurações do gráfico
+            options: {
+                maintainAspectRadio: false,
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Djs mais populares'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-qtd',
+                    }, {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        id: 'y-qtd',
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+
+        
+    }
+
+    
+
+</script>

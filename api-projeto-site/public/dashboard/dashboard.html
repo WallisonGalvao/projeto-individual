@@ -11,26 +11,26 @@
     <link rel="stylesheet" href="dashboards.css">
     <script src="../assets/js/funcoes.js"></script>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
 
     <!-- scripts do Chart.js -->
-    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <!-- <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script> -->
 
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), usuariosCadastrados()">
     <div class="header">
 
         <nav id="navbar">
             <img src="../assets/imgsW/WeRaveLogo.png" alt="" class="logo">
 
             <ul id="menu">
-                <li class="active">HOME</li>
-                <li><a href="cadastroW.html">SIGN UP</a></li>
-                <li><a href="login.html">SIGN IN</a></li>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="../cadastroW.html">SIGN UP</a></li>
+                <li><a href="../login.html">SIGN IN</a></li>
                 <li>CONTACT</li>
                 <li>
                     <div class="btn-logout" onclick="limparSessao()">
@@ -39,28 +39,38 @@
                 </li>
             </ul>
 
-            
+
         </nav>
 
 
     </div>
 
-    <div class="btn-nav">
 
-        <h3>Gráficos</h3>
+
+
+
+
 
     </div>
 
-
-
-    
-
+    <div id="qtdUsuarios" class="qtdUsuarios">
     </div>
 
+    <a href="graficoDjs.html">
+
+        <button>Gráfico</button>
+    </a>
     <div id="djs" class="djs">
+
 
         <button onclick="atualizarFeed()">Buscar DJ</button>
         <!--<img id="imagem" src="" alt=""> !-->
+    </div>
+
+    <div class="footer">
+        <div class="containerFooter">
+            <h4> WE RAVE &copy; 2021</h4>
+        </div>
     </div>
 
 
@@ -88,100 +98,136 @@
                 resposta.json().then(function (resposta) {
 
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
-                    
+
                     var feed = document.getElementById("djs");
                     djs.innerHTML = "";
                     for (var i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
-                        
+
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
-                        var spanLink = document.createElement("span");
-                        var imagemDJ = document.createElement("img");  
+                        var botaoLink = document.createElement("button");
+                        // var spanLink = document.createElement("span");
+                        var imagemDJ = document.createElement("img");
                         // var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
-                        
-                        
-                        spanID.innerHTML = "ID: <b>" + publicacao.idDJ + "</b>";
-                        console.log(publicacao.idDJ);
-                        
+
+
+                        // spanID.innerHTML = "ID: <b>" + publicacao.idDJ + "</b>";
+                        // console.log(publicacao.idDJ);
+
                         // spanTitulo.innerHTML = "Título: <b>"+publicacao.+"</b>";
                         spanNome.innerHTML = "DJ: <b>" + publicacao.nomeDJ + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        
+
                         divPublicacao.className = "publicacao";
-                        spanLink.className = "linkSpotify";
+                        botaoLink.className = "linkSpotify";
                         // spanTitulo.id = "inputNumero"+publicacao.idAviso;
                         imagemDJ.className = "imgDJ";
                         spanNome.className = "publicacao-nome";
                         // spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
-                        
+
                         divButtons.className = "div-buttons"
-                        
-                        divPublicacao.appendChild(spanID);
+
+                        // divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanLink);
+                        // divPublicacao.appendChild(spanLink);
+                        divPublicacao.appendChild(botaoLink);
                         divPublicacao.appendChild(imagemDJ);
-                        // divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         feed.appendChild(divPublicacao);
 
-                        if (publicacao.idDJ == 1){
-                            spanLink.innerHTML =
-                             'https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso';
+                        if (publicacao.idDJ == 1) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso'>Spotify</a>";
                             imagemDJ.src = "../assets/imgs-djs/charlotteDeWitte.jpg"
-                        }else if (publicacao.idDJ == 2) {
+                        } else if (publicacao.idDJ == 2) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/5Ho1vKl1Uz8bJlk4vbmvmf'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/amelieLens.png";
                         } else if (publicacao.idDJ == 3) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/1UL813H5aj3e8ekE5RqWqc'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/taleOfUs.jpg";
-                        } else if (publicacao.idDJ == 4){
+                        } else if (publicacao.idDJ == 4) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/3BkRu2TGd2I1uBxZKddfg1'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/artbat.jpeg";
-                        } else if (publicacao.idJ == 5){
+                        } else if (publicacao.idJ == 5) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/6QSwQEz8CDMg8Rqk8dEkxS'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/mathame.jpg";
                         } else if (publicacao.idDJ == 6) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/50Lr1puweM1hFsF1LpIZLM'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/whoMadeWho.jpg";
                         } else if (publicacao.idDJ == 7) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/6caPJFLv1wesmM7gwK1ACy'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/borisBrejcha.jpg";
                         } else if (publicacao.idDJ == 8) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/4SxTtbkEKXwyhltXD7tnYQ'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/Hozho.jpg";
                         } else if (publicacao.idDJ == 9) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/4admDxmnri5Zco0xYrJ0ji'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/JamieJones.jpeg";
                         } else if (publicacao.idDJ == 10) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/4cvdQRyHmkSQSakUrW2oxv'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/MichaelBibi.jpg";
                         } else if (publicacao.idDJ == 11) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/1VJ0briNOlXRtJUAzoUJdt'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/fisher.jpg";
                         } else if (publicacao.idDJ == 12) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/martinGarrix.jpg";
                         } else if (publicacao.idDJ == 13) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/5wJK4kQAkVGjqM9x46KQOC'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/solomun.jpeg";
                         } else if (publicacao.idDJ == 14) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/1oZmFNkGAT93yD1xX4vTRE'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/ninaKraviz.jpg";
                         } else if (publicacao.idDJ == 15) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/skrillex.jpg";
                         } else if (publicacao.idDJ == 16) {
+                            botaoLink.innerHTML =
+                               "<a href='https://soundcloud.com/borgore'>SoundCloud</a>"
                             imagemDJ.src = "../assets/imgs-djs/Borgore.jpg";
                         } else if (publicacao.idDJ == 17) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/5X3rdmEE2Mif6kFQkb2PxB'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/neelix.jpg";
                         } else if (publicacao.idDJ == 18) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/2o5jDhtHVPhrJdv3cEQ99Z'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/Tiesto.jpg";
                         } else if (publicacao.idDJ == 19) {
+                            botaoLink.innerHTML =
+                               "<a href='https://open.spotify.com/artist/0NGAZxHanS9e0iNHpR8f2W'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/alok.jpg";
                         }
 
 
                     }
                     // for (var i = 0; i < lista.length; i++) {
-                        
+
                     //     lista.push(resposta.idDJ);
                     //     teste.innerHTML = `${lista[i]}<br>`;
                     // }
                     // console.log(lista);
-                    
+
                     // finalizarAguardar();
                 });
             } else {
@@ -193,136 +239,31 @@
         });
     }
 
+
+
     // let proximaAtualizacao;
 
     // //verificar_autenticacao();
 
     // // altere aqui como os dados serão exibidos
     // // e como são recuperados do BackEnd
-    // function obterDadosGrafico(idAquario) {
-    //     if (proximaAtualizacao != undefined) {
-    //         clearTimeout(proximaAtualizacao);
-    //     }
-
-    //     fetch(`/usuario/buscar/${djEscolhido}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (resposta) {
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 resposta.reverse();
-
-    //                 for (i = 0; i < resposta.length; i++) {
-    //                     var registro = resposta[i];
-    //                 // mostrarVertente(fkVertente);
-    //                 mostrarDJ(djEscolhido);
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
+    function usuariosCadastrados() {
 
 
-
-    function mostrarDJ(fkDJ) {
-        if (fkDJ == 1) {
-            prefacioDj.style.display = 'block';
-            nomeDJ.innerHTML = 'Charlotte De Witte';
-            sobre.innerHTML = '';
-            imgDj.src = "../assets/imgs-djs/charlotteDeWitte.jpg";
-            link.innerHTML = ``;
-        }
-    }
-
-    // só altere aqui se souber o que está fazendo!
-    function plotarGrafico(resposta, idAquario) {
-        console.log('iniciando plotagem do gráfico...');
-
-        var dados = {
-            labels: [],
-            datasets: [
-                {
-                    yAxisID: 'y-umidade',
-                    label: 'Umidade',
-                    borderColor: '#32B9CD',
-                    backgroundColor: '#32b9cd8f',
-                    fill: true,
-                    data: []
-                }
-            ]
-        };
-
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-        }
-
-        console.log(JSON.stringify(dados));
-
-        var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
-            data: dados,
-            //Configurações do gráfico
-            options: {
-                responsive: true,
-                animation: { duration: 500 },
-                hoverMode: 'index',
-                stacked: false,
-                title: {
-                    display: true,
-                    text: 'Histórico recente de umidade'
-                },
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-temperatura',
-                    }, {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        id: 'y-umidade',
-
-                        gridLines: {
-                            drawOnChartArea: false,
-                        },
-                    }],
-                }
-            }
-        });
-
-        //Atualiza os dados de 2 em 2 segundos
-        setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
-    }
-
-    // só mexer se quiser alterar o tempo de atualização
-    // ou se souber o que está fazendo!
-    function atualizarGrafico(idAquario, dados) {
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/avisos/cadastros`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
-                response.json().then(function (novoRegistro) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico: ${dados}`);
-
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                    window.grafico_linha.update();
-
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 5000);
-                });
-            } else {
+                    for (i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+                        
+                        qtdUsuarios.innerHTML = "Usuários cadastrados: " + registro.qtd_usuarios;
+                    };
+                })
+        } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados), 5000);
             }
         })
             .catch(function (error) {
@@ -330,6 +271,13 @@
             });
 
     }
+
+
+
+
+
+    // só altere aqui se souber o que está fazendo!
+    
 
     var navbar = document.getElementById("navbar");
     var menu = document.getElementById("menu");

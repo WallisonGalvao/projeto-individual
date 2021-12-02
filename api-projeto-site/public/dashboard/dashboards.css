@@ -69,12 +69,13 @@
 }
 
 .publicacao {
+    height: 30%;
     display: flex;
     flex-wrap: wrap;
-    align-content: stretch;
+    /* align-content: stretch; */
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     /* border-bottom: 3px solid #E6005A; */
     padding: 20px;
     color: #fff;
@@ -129,13 +130,7 @@
     height: 45vh;
 }
 
-.regua {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    margin-top: 30px;
-}
+
 
 .perigo-frio {
     background-color: #5C6BC0;
@@ -203,19 +198,9 @@
     margin: 20px;
 }
 
-.temperatura, .umidade {
-    margin: 5px;
-    margin-left: 20px;
-    width: 75%;
-}
 
-.cor-alerta {
-    width: 13%;
-    height: 30%;
-    border-radius: 50px;
-    margin-top: 6%;
-    /* background-color: #c7c7c7; */
-}
+
+
 
 .btns-dash{
     display: flex;
@@ -240,3 +225,19 @@
     background-color: #E6005A;
     margin: 5px;
 }
+
+.qtdUsuarios {
+    height: 40px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.container  {
+
+    height: 50vh;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+} 
