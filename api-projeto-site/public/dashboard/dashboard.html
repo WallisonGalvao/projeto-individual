@@ -32,7 +32,14 @@
                 <li><a href="cadastroW.html">SIGN UP</a></li>
                 <li><a href="login.html">SIGN IN</a></li>
                 <li>CONTACT</li>
+                <li>
+                    <div class="btn-logout" onclick="limparSessao()">
+                        <h3>SAIR</h3>
+                    </div>
+                </li>
             </ul>
+
+            
         </nav>
 
 
@@ -46,16 +53,14 @@
 
 
 
-    <div class="btn-logout" onclick="limparSessao()">
-        <h3>Sair</h3>
-    </div>
+    
 
     </div>
 
     <div id="djs" class="djs">
 
         <button onclick="atualizarFeed()">Buscar DJ</button>
-        <img id="imagem" src="" alt="">
+        <!--<img id="imagem" src="" alt=""> !-->
     </div>
 
 
@@ -69,7 +74,8 @@
     var lista = [];
     function atualizarFeed() {
         // aguardar();
-        fetch(`/avisos/listar`).then(function (resposta) {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch(`/avisos/listar/${idUsuario}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("djs");
@@ -91,7 +97,8 @@
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
-                        var imagem = document.createElement("img");  
+                        var spanLink = document.createElement("span");
+                        var imagemDJ = document.createElement("img");  
                         // var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
@@ -100,15 +107,15 @@
                         
                         spanID.innerHTML = "ID: <b>" + publicacao.idDJ + "</b>";
                         console.log(publicacao.idDJ);
-                        if (publicacao.idDJ == 14){
-                            imagem.src = "../assets/imgs-djs/ninaKraviz.jpg";
-                        }
+                        
                         // spanTitulo.innerHTML = "Título: <b>"+publicacao.+"</b>";
                         spanNome.innerHTML = "DJ: <b>" + publicacao.nomeDJ + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         
                         divPublicacao.className = "publicacao";
+                        spanLink.className = "linkSpotify";
                         // spanTitulo.id = "inputNumero"+publicacao.idAviso;
+                        imagemDJ.className = "imgDJ";
                         spanNome.className = "publicacao-nome";
                         // spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
@@ -117,10 +124,56 @@
                         
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(spanLink);
+                        divPublicacao.appendChild(imagemDJ);
                         // divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         feed.appendChild(divPublicacao);
+
+                        if (publicacao.idDJ == 1){
+                            spanLink.innerHTML =
+                             'https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso';
+                            imagemDJ.src = "../assets/imgs-djs/charlotteDeWitte.jpg"
+                        }else if (publicacao.idDJ == 2) {
+                            imagemDJ.src = "../assets/imgs-djs/amelieLens.png";
+                        } else if (publicacao.idDJ == 3) {
+                            imagemDJ.src = "../assets/imgs-djs/taleOfUs.jpg";
+                        } else if (publicacao.idDJ == 4){
+                            imagemDJ.src = "../assets/imgs-djs/artbat.jpeg";
+                        } else if (publicacao.idJ == 5){
+                            imagemDJ.src = "../assets/imgs-djs/mathame.jpg";
+                        } else if (publicacao.idDJ == 6) {
+                            imagemDJ.src = "../assets/imgs-djs/whoMadeWho.jpg";
+                        } else if (publicacao.idDJ == 7) {
+                            imagemDJ.src = "../assets/imgs-djs/borisBrejcha.jpg";
+                        } else if (publicacao.idDJ == 8) {
+                            imagemDJ.src = "../assets/imgs-djs/Hozho.jpg";
+                        } else if (publicacao.idDJ == 9) {
+                            imagemDJ.src = "../assets/imgs-djs/JamieJones.jpeg";
+                        } else if (publicacao.idDJ == 10) {
+                            imagemDJ.src = "../assets/imgs-djs/MichaelBibi.jpg";
+                        } else if (publicacao.idDJ == 11) {
+                            imagemDJ.src = "../assets/imgs-djs/fisher.jpg";
+                        } else if (publicacao.idDJ == 12) {
+                            imagemDJ.src = "../assets/imgs-djs/martinGarrix.jpg";
+                        } else if (publicacao.idDJ == 13) {
+                            imagemDJ.src = "../assets/imgs-djs/solomun.jpeg";
+                        } else if (publicacao.idDJ == 14) {
+                            imagemDJ.src = "../assets/imgs-djs/ninaKraviz.jpg";
+                        } else if (publicacao.idDJ == 15) {
+                            imagemDJ.src = "../assets/imgs-djs/skrillex.jpg";
+                        } else if (publicacao.idDJ == 16) {
+                            imagemDJ.src = "../assets/imgs-djs/Borgore.jpg";
+                        } else if (publicacao.idDJ == 17) {
+                            imagemDJ.src = "../assets/imgs-djs/neelix.jpg";
+                        } else if (publicacao.idDJ == 18) {
+                            imagemDJ.src = "../assets/imgs-djs/Tiesto.jpg";
+                        } else if (publicacao.idDJ == 19) {
+                            imagemDJ.src = "../assets/imgs-djs/alok.jpg";
+                        }
+
+
                     }
                     // for (var i = 0; i < lista.length; i++) {
                         
@@ -180,7 +233,7 @@
             nomeDJ.innerHTML = 'Charlotte De Witte';
             sobre.innerHTML = '';
             imgDj.src = "../assets/imgs-djs/charlotteDeWitte.jpg";
-            link.innerHTML = `https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso`;
+            link.innerHTML = ``;
         }
     }
 

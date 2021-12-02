@@ -102,17 +102,17 @@ function cadastrar(req, res) {
 }
 
 function buscar (req, res){
-    var idUsuario = req.param.idUsuario;
-    var djEscolhido = req.params.djEscolhido;
+    var idUsuario = req.params.idUsuario;
+   
 
     //  if (fkVertente == undefined) {
     //     res.status(400).send("fk da vertente está undefined!");
     // } else 
-        if (djEscolhido == undefined) {
-        res.status(400).send("fk do dj está undefined!");
+        if (idUsuario == undefined) {
+        res.status(400).send("id do usuario está undefined!");
     }
     else {
-        usuarioModel.buscar(idUsuario, djEscolhido)
+        avisoModel.listar(idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);

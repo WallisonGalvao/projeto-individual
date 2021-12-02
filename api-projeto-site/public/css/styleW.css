@@ -213,6 +213,10 @@ button {
     cursor: pointer;
 }
 
+.banner-login .imgDJ {
+    width: 40vw;
+}
+
 /* FIM LOGIN */
 
 /* rodapé */
