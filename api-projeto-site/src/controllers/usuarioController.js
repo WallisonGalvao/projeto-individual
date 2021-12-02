@@ -66,7 +66,6 @@ function cadastrar(req, res) {
     var senha = req.body.senha;
     var telefone = req.body.telefone;
     var cidade = req.body.cidade;
-    var vertenteEscolhida = req.params.vertenteEscolhida;
     var djEscolhido = req.params.djEscolhido;
 
     if (nome == undefined) {
@@ -80,12 +79,11 @@ function cadastrar(req, res) {
     
     } else if (cidade == undefined) {
         res.status(400).send("Sua cidade está undefined!");
-    } else if (vertenteEscolhida == undefined) {
-        res.status(400).send("Sua vertenteEscolhida está undefined!");
+    
     } else if (djEscolhido == undefined) {
         res.status(400).send("O dj está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, sobrenome, email, senha, telefone, cidade, vertenteEscolhida, djEscolhido)
+        usuarioModel.cadastrar(nome, sobrenome, email, senha, telefone, cidade, djEscolhido)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -103,9 +101,41 @@ function cadastrar(req, res) {
     }
 }
 
+function buscar (req, res){
+    var idUsuario = req.param.idUsuario;
+    var djEscolhido = req.params.djEscolhido;
+
+    //  if (fkVertente == undefined) {
+    //     res.status(400).send("fk da vertente está undefined!");
+    // } else 
+        if (djEscolhido == undefined) {
+        res.status(400).send("fk do dj está undefined!");
+    }
+    else {
+        usuarioModel.buscar(idUsuario, djEscolhido)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+    
+
+
 module.exports = {
     entrar,
     cadastrar,
     listar,   
-    testar
+    testar,
+    buscar
 }

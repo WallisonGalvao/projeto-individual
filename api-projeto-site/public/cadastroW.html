@@ -22,12 +22,12 @@
 
             <ul id="menu">
                 <li> <a href="index.html">HOME</a> </li>
-                <li>ABOUT</li> <!-- verificar-->
                 <li class="active">SIGN UP</li>
                 <li><a href="login.html">SIGN IN</a></li>
                 <li><a href="contato.html">CONTACT</a></li>
             </ul>
         </nav>
+    </div>
 
         <div class="banner-cadastro">
             <div class="container">
@@ -56,20 +56,9 @@
                             Cidade:
                             <input type="text" name="cidade" placeholder="Ex: São Paulo"> <br>
 
-                            Selecione uma vertente:
-                            <select name="vertenteEscolhida" id="">
-                                <option hidden>Escolha uma vertente</option>
-                                <option value="1">Techno</option>
-                                <option value="2">Minimal Techno</option>
-                                <option value="3">House</option>
-                                <option value="4">Deep House</option>
-                                <option value="5">Tech House</option>
-                                <option value="6">Progressive House</option>
-                                <option value="7">Dubstep</option>
-                                <option value="8">Trance</option>
-                                <option value="9">Psy Trance</option>
-                            </select> <br>
+                         
 
+                            Selecione um DJ para começar:
                             <select name="djEscolhido" id="">
                                 <option >Escolha um DJ</option>
                                 <option value="1">Charlotte De Witte</option>
@@ -107,7 +96,7 @@
             </div>
         </div>
 
-    </div>
+    
 
 
 
@@ -127,7 +116,7 @@
     </script>
 
     <div class="footer">
-        <div class="container">
+        <div class="containerFooter">
             <h4>WE RAVE &copy; 2021</h4>
         </div>
     </div>
@@ -152,11 +141,10 @@
         var confirmacaoSenha = formulario.get("confirmacao-senha");
         var telefone = formulario.get("telefone");
         var cidade = formulario.get("cidade");
-        var vertenteEscolhida = formulario.get("vertenteEscolhida");
         var djEscolhido = formulario.get("djEscolhido");
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || telefone == "" || cidade == "" || vertenteEscolhida == "" || djEscolhido == "") {
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || telefone == "" || cidade == "" || djEscolhido == "") {
 
             window.alert("Preencha todos os campos para prosseguir!");
             if (nome == "") {
@@ -177,9 +165,7 @@
             if (cidade == "") {
                 console.log('cidade está em branco')
             }
-            if (vertenteEscolhida == "") {
-                console.log('vertente está em branco')
-            }
+           
             if (djEscolhido == "") {
                 console.log('dj está em branco')
             }
@@ -210,7 +196,7 @@
 
 
 
-        fetch(`/usuarios/cadastrar/${vertenteEscolhida}/${djEscolhido}`, {
+        fetch(`/usuarios/cadastrar/${djEscolhido}`, {
             method: "POST",
             body: formulario
         }).then(function (resposta) {

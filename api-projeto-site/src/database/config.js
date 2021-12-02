@@ -13,7 +13,7 @@ var sqlServerConfig = {
         idleTimeoutMillis: 30000
     },
     options: {  
-        encrypt: true, // for azure
+        encrypt: true, // for azure 
     }
 }
 
@@ -21,7 +21,7 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     user: "root",
-    password: "bandtec",
+    password: "lana1704",
     database: "WERAVE",
 };
 

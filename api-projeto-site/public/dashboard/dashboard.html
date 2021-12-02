@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WE RAVE</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleW.css">
     <link rel="stylesheet" href="dashboards.css">
     <script src="../assets/js/funcoes.js"></script>
 
@@ -21,52 +21,43 @@
 
 </head>
 
-<body onload="validarSessao(),  obterDadosGrafico(1)">
-    <div class="janela">
-        <div class="header-left">
-            <h1>WE RAVE</h1>
+<body onload="validarSessao()">
+    <div class="header">
 
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario"></span>!</h3>
-            </div>
+        <nav id="navbar">
+            <img src="../assets/imgsW/WeRaveLogo.png" alt="" class="logo">
 
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
+            <ul id="menu">
+                <li class="active">HOME</li>
+                <li><a href="cadastroW.html">SIGN UP</a></li>
+                <li><a href="login.html">SIGN IN</a></li>
+                <li>CONTACT</li>
+            </ul>
+        </nav>
 
-            <div class="btn-nav">
 
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
-
-        <div class="dash">
-            <div class="btns-dash">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart" onclick="obterDadosGrafico(1)">Aquario 1</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(2)">Aquario 2</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(3)">Aquario 3</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(4)">Aquario 4</button>
-            </div>
-            <div class="graph">
-                <canvas id="canvas_grafico"></canvas>
-            </div>
-        </div>
     </div>
+
+    <div class="btn-nav">
+
+        <h3>Gráficos</h3>
+
+    </div>
+
+
+
+    <div class="btn-logout" onclick="limparSessao()">
+        <h3>Sair</h3>
+    </div>
+
+    </div>
+
+    <div id="djs" class="djs">
+
+        <button onclick="atualizarFeed()">Buscar DJ</button>
+        <img id="imagem" src="" alt="">
+    </div>
+
 
 
 </body>
@@ -75,33 +66,122 @@
 
 <script>
 
-    let proximaAtualizacao;
+    var lista = [];
+    function atualizarFeed() {
+        // aguardar();
+        fetch(`/avisos/listar`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("djs");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
 
-    //verificar_autenticacao();
+                resposta.json().then(function (resposta) {
 
-    // altere aqui como os dados serão exibidos
-    // e como são recuperados do BackEnd
-    function obterDadosGrafico(idAquario) {
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idAquario);
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    
+                    var feed = document.getElementById("djs");
+                    djs.innerHTML = "";
+                    for (var i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPublicacao = document.createElement("div");
+                        var spanID = document.createElement("span");
+                        var imagem = document.createElement("img");  
+                        // var spanTitulo = document.createElement("span");
+                        var spanNome = document.createElement("span");
+                        var divDescricao = document.createElement("div");
+                        var divButtons = document.createElement("div");
+                        
+                        
+                        spanID.innerHTML = "ID: <b>" + publicacao.idDJ + "</b>";
+                        console.log(publicacao.idDJ);
+                        if (publicacao.idDJ == 14){
+                            imagem.src = "../assets/imgs-djs/ninaKraviz.jpg";
+                        }
+                        // spanTitulo.innerHTML = "Título: <b>"+publicacao.+"</b>";
+                        spanNome.innerHTML = "DJ: <b>" + publicacao.nomeDJ + "</b>";
+                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        
+                        divPublicacao.className = "publicacao";
+                        // spanTitulo.id = "inputNumero"+publicacao.idAviso;
+                        spanNome.className = "publicacao-nome";
+                        // spanTitulo.className = "publicacao-titulo";
+                        divDescricao.className = "publicacao-descricao";
+                        
+                        divButtons.className = "div-buttons"
+                        
+                        divPublicacao.appendChild(spanID);
+                        divPublicacao.appendChild(spanNome);
+                        // divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(divButtons);
+                        feed.appendChild(divPublicacao);
+                    }
+                    // for (var i = 0; i < lista.length; i++) {
+                        
+                    //     lista.push(resposta.idDJ);
+                    //     teste.innerHTML = `${lista[i]}<br>`;
+                    // }
+                    // console.log(lista);
+                    
+                    // finalizarAguardar();
                 });
             } else {
-                console.error('Nenhum dado encontrado ou erro na API');
+                throw ('Houve um erro na API!');
             }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
 
+    // let proximaAtualizacao;
+
+    // //verificar_autenticacao();
+
+    // // altere aqui como os dados serão exibidos
+    // // e como são recuperados do BackEnd
+    // function obterDadosGrafico(idAquario) {
+    //     if (proximaAtualizacao != undefined) {
+    //         clearTimeout(proximaAtualizacao);
+    //     }
+
+    //     fetch(`/usuario/buscar/${djEscolhido}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (resposta) {
+    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+    //                 resposta.reverse();
+
+    //                 for (i = 0; i < resposta.length; i++) {
+    //                     var registro = resposta[i];
+    //                 // mostrarVertente(fkVertente);
+    //                 mostrarDJ(djEscolhido);
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+
+    // }
+
+
+
+    function mostrarDJ(fkDJ) {
+        if (fkDJ == 1) {
+            prefacioDj.style.display = 'block';
+            nomeDJ.innerHTML = 'Charlotte De Witte';
+            sobre.innerHTML = '';
+            imgDj.src = "../assets/imgs-djs/charlotteDeWitte.jpg";
+            link.innerHTML = `https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso`;
+        }
     }
 
     // só altere aqui se souber o que está fazendo!
@@ -196,5 +276,18 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
+    }
+
+    var navbar = document.getElementById("navbar");
+    var menu = document.getElementById("menu");
+
+    window.onscroll = function () {
+        if (window.pageYOffset >= menu.offsetTop) {
+
+            navbar.classList.add("sticky");
+        }
+        else {
+            navbar.classList.remove("sticky");
+        }
     }
 </script>
