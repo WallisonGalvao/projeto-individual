@@ -9,7 +9,7 @@
 
 body {
 
-    background-image: url(../assets/imgsW/afterlife.jpg);
+    background-image: url(../assets/imgsW/afterlife-brasil.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -95,159 +95,6 @@ nav.sticky ul {
 
 /* FIM HEADER */
 
-/* conteúdo index  */
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 40vh;
-    
-}
-
-
-.bloco h2 {
-    color: #fff;
-  margin-left: 30%;
-    margin-bottom: 2%;
-}
-
-.bloco {
-    height: 550px;
-    background: rgba(0, 0, 0, 0.829);
-    border-radius: 15px;
-    padding: 50px;
-
-}
-
-
-
-.container {
-    display: flex;
-   
-    align-items: center;
-    justify-content: center;
-    height: 550px;
-}
-
-.content div {
-    height: 30vh;
-    width: 67vw;
-    margin-top: 30px;
-}
-
-.texto  {
-    color: #fff;
-    font-size: 19px;
-    padding: 10px;
-}
-
-.texto  a {
-    /* text-decoration: none; */
-    color: #fff;
-}
-
-/* FIM INDEX  */
-
-/* cadastro */
-
-.containerCadastro {
-    display: flex;
-    margin-left: 4%;
-    align-items: center;
-    justify-content: center;
-    
-    
-}
-
-#form_cadastro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: #fff;
-}
-
-.bloco-medio {
-    font-size: 23px;
-}
-
-.containerCadastro .bloco-medio  h2 {
-    font-size: 2.3rem;
-    color: #fff;
-    margin-left: 40%;
-}
-
-.org {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    left: 100%;
-    
-}
-
-
-
-.bloco input {
-    font-size: 20px;
-    height: 30px;
-    padding: 15px;
-    border: none;
-    border-radius: 15px;
-    background-color:rgba(0, 0, 0, 0.829);
-    color: #fff;
-    font-weight: 500;
-}
-
-.bloco input:active {
-    background-color:rgba(0, 0, 0, 0.829);
-}
-
-.bloco select {
-    font-size: 20px;
-    height: 40px;
-    width: 230px;
-    padding: 10px;
-    border: none;
-    border-radius: 15px;
-    background-color:rgba(0, 0, 0, 0.829);
-    color: #fff;
-    font-weight: 500;
-}
-
-.btn {
-    justify-content: center;
-    margin-top: 20px;
-    font-size: 20px;
-    height: 50px;
-    width: 300px;
-    border: none;
-    background-color:#32cd32;
-    color: #000;
-    font-weight: 700;
-    padding: 15px;
-    border-radius: 15px;
-}
-
-
-
-
-.loading-div {
-    width: 50px;
-    /* border: 3px solid pink; */
-    margin: auto;
-    display: none;
-    
-}
-
-.loading-div img {
-    height: 50px;
-    width: 50px;
-}
-
-/* FIM CADASTRO */
-
-/* LOGIN */
 .banner-login .container {
     height: 550px;
     /* border: 3px solid green; */
@@ -291,9 +138,11 @@ nav.sticky ul {
 }
 
 .login input {
-    height: 30px;
+    height: 40px;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bolder;
 }
 
 .btn-login {
@@ -305,12 +154,13 @@ nav.sticky ul {
 
 .btn-login button {
     color: #000;
-    background: #fff;
+    background: #28a428;
     padding: 15px;
     height: 50px;
     width: 250px;
-    border-radius: 5px;
+    border-radius: 50px;
     font-weight: bolder;
+    border: none;
 }
 
 .banner-login a {
@@ -329,6 +179,21 @@ button {
 .imgDJ {
     width: 40vw;
     border-radius: 5px;
+
+    
+}
+
+.loading-div {
+    width: 50px;
+    /* border: 3px solid pink; */
+    margin: auto;
+    display: none;
+    
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
 }
 
 /* FIM LOGIN */

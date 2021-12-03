@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We Rave | Home</title>
     <script src="./assets/js/funcoes.js"></script>
-    <link rel="stylesheet" href="css/styleW.css">
+    <link rel="stylesheet" href="css/styleCadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -29,64 +29,74 @@
         </nav>
     </div>
 
-        <div class="banner-cadastro">
+        
             <div class="container">
                 <div class="bloco-medio">
                     <h2>SIGN UP!</h2>
                     <div class="formulario">
                         <form id="form_cadastro" method="post" onsubmit=" return cadastrar()">
-                            Nome:
-                            <input name="nome" type="text" placeholder="Digite seu nome aqui"> <br>
+                            <div class="bloco">
 
-                            Sobrenome:
-                            <input name="sobrenome" type="text" placeholder="Digite seu sobrenome"> <br>
+                           
+                               Nome:
+                               <input name="nome" type="text" placeholder="Digite seu nome aqui"> <br>
 
-                            Email:
-                            <input name="email" type="email" placeholder="usuario@provedor.com"> <br>
+                               Sobrenome:
+                               <input name="sobrenome" type="text" placeholder="Digite seu sobrenome"> <br>
+                           
 
-                            Senha:
-                            <input name="senha" type="password" placeholder="*********"> <br>
+                           
+                               Email:
+                               <input name="email" type="email" placeholder="usuario@provedor.com"> <br>
+                               
+                               Senha:
+                               <input name="senha" type="password" placeholder="*********"> <br>
+                               
+                               Confirme sua senha:
+                               <input type="password" name="confirmacao-senha" placeholder="*********"> <br>
+                           
 
-                            Confirme sua senha:
-                            <input type="password" name="confirmacao-senha" placeholder="*********"> <br>
 
-                            Telefone:
-                            <input name="telefone" type="text" placeholder="(DDD)xxxxx-xxxx"> <br>
-
-                            Cidade:
-                            <input type="text" name="cidade" placeholder="Ex: São Paulo"> <br>
-
-                         
-
-                            Selecione um DJ para começar:
-                            <select name="djEscolhido" id="">
-                                <option >Escolha um DJ</option>
-                                <option value="1">Charlotte De Witte</option>
-                                <option value="2">Amelie Lens</option>
-                                <option value="3">Tale of Us</option>
-                                <option value="4">ARTBAT</option>
-                                <option value="5">Mathame</option>
-                                <option value="6">WhoMadeWho</option>
-                                <option value="7">Boris Brejcha</option>
-                                <option value="8">Hozho</option>
-                                <option value="9">Jamie Jones</option>
-                                <option value="10">Michael Bibi</option>
-                                <option value="11">FISHER</option>
-                                <option value="12">Martin Garrix</option>
-                                <option value="13">Solomun</option>
-                                <option value="14">Nina Kraviz</option>
-                                <option value="15">skrillex</option>
-                                <option value="16">Borgore</option>
-                                <option value="17">Neelix</option>
-                                <option value="18">Tiesto</option>
-                                <option value="19">Alok</option>
-                            </select> <br>
-
-                            <button class="btn">Cadastrar</button>
+                            
+                                Telefone:
+                                <input name="telefone" type="text" placeholder="(DDD)xxxxx-xxxx"> <br>
+    
+                                Cidade:
+                                <input type="text" name="cidade" placeholder="Ex: São Paulo"> <br>
+                                
+                                
+                                
+                                Selecione um DJ para começar:
+                                <select name="djEscolhido" id="">
+                                    <option >Escolha um DJ</option>
+                                    <option value="1">Charlotte De Witte</option>
+                                    <option value="2">Amelie Lens</option>
+                                    <option value="3">Tale of Us</option>
+                                    <option value="4">ARTBAT</option>
+                                    <option value="5">Mathame</option>
+                                    <option value="6">WhoMadeWho</option>
+                                    <option value="7">Boris Brejcha</option>
+                                    <option value="8">Hozho</option>
+                                    <option value="9">Jamie Jones</option>
+                                    <option value="10">Michael Bibi</option>
+                                    <option value="11">FISHER</option>
+                                    <option value="12">Martin Garrix</option>
+                                    <option value="13">Solomun</option>
+                                    <option value="14">Nina Kraviz</option>
+                                    <option value="15">skrillex</option>
+                                    <option value="16">Borgore</option>
+                                    <option value="17">Neelix</option>
+                                    <option value="18">Tiesto</option>
+                                    <option value="19">Alok</option>
+                                </select> <br>
+                                
+                                <button class="btn">CADASTRAR</button>
+                            </div>
                         </form>
                     </div>
+
                     <div id="div_aguardar" class="loading-div">
-                        <img src="./assets/circle-loading.gif" id="loading-gif">
+                        <img src="./assets/loading.gif" id="loading-gif">
                     </div>
     
                     <div id="div_erros_login">
@@ -94,25 +104,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+     
 
     
 
 
 
     <script>
-        var navbar = document.getElementById("navbar");
-        var menu = document.getElementById("menu");
-
-        window.onscroll = function () {
-            if (window.pageYOffset >= menu.offsetTop) {
-
-                navbar.classList.add("sticky");
-            }
-            else {
-                navbar.classList.remove("sticky");
-            }
-        }
+       
     </script>
 
     <div class="footer">
@@ -218,4 +217,18 @@
 
         return false;
     }
+    
+    var navbar = document.getElementById("navbar");
+        var menu = document.getElementById("menu");
+
+        window.onscroll = function () {
+            if (window.pageYOffset >= menu.offsetTop) {
+
+                navbar.classList.add("sticky");
+            }
+            else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    
 </script>

@@ -9,18 +9,16 @@
 
 body {
 
-    background-image: url(../assets/imgsW/afterlife.jpg);
+    background-image: url(../assets/imgsW/Afterlife3.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* header */
-.header{
+.header {
     width: 100%;
     height: 30vh;
     background-position: center;
-    
 }
 
 .active{
@@ -95,63 +93,9 @@ nav.sticky ul {
 
 /* FIM HEADER */
 
-/* conteúdo index  */
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 40vh;
-    
-}
-
-
-.bloco h2 {
-    color: #fff;
-  margin-left: 30%;
-    margin-bottom: 2%;
-}
-
-.bloco {
-    height: 550px;
-    background: rgba(0, 0, 0, 0.829);
-    border-radius: 15px;
-    padding: 50px;
-
-}
-
-
+/* CADASTRO */
 
 .container {
-    display: flex;
-   
-    align-items: center;
-    justify-content: center;
-    height: 550px;
-}
-
-.content div {
-    height: 30vh;
-    width: 67vw;
-    margin-top: 30px;
-}
-
-.texto  {
-    color: #fff;
-    font-size: 19px;
-    padding: 10px;
-}
-
-.texto  a {
-    /* text-decoration: none; */
-    color: #fff;
-}
-
-/* FIM INDEX  */
-
-/* cadastro */
-
-.containerCadastro {
     display: flex;
     margin-left: 4%;
     align-items: center;
@@ -172,7 +116,7 @@ nav.sticky ul {
     font-size: 23px;
 }
 
-.containerCadastro .bloco-medio  h2 {
+ .bloco-medio  h2 {
     font-size: 2.3rem;
     color: #fff;
     margin-left: 40%;
@@ -186,14 +130,23 @@ nav.sticky ul {
     
 }
 
+.bloco {
+    border-radius: 15px;
+    height: 550px;
+    width: 550px;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.829);
+}
+
 
 
 .bloco input {
+    margin-bottom: 3%;
     font-size: 20px;
     height: 30px;
     padding: 15px;
     border: none;
-    border-radius: 15px;
+    border-radius: 50px;
     background-color:rgba(0, 0, 0, 0.829);
     color: #fff;
     font-weight: 500;
@@ -209,7 +162,7 @@ nav.sticky ul {
     width: 230px;
     padding: 10px;
     border: none;
-    border-radius: 15px;
+    border-radius: 50px;
     background-color:rgba(0, 0, 0, 0.829);
     color: #fff;
     font-weight: 500;
@@ -222,11 +175,11 @@ nav.sticky ul {
     height: 50px;
     width: 300px;
     border: none;
-    background-color:#32cd32;
+    background-color:#28a428;
     color: #000;
     font-weight: 700;
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 50px;
 }
 
 
@@ -246,94 +199,6 @@ nav.sticky ul {
 }
 
 /* FIM CADASTRO */
-
-/* LOGIN */
-.banner-login .container {
-    height: 550px;
-    /* border: 3px solid green; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.banner-login {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
- .card-medio {
-    background-color: rgba(0, 0, 0, 0.829);
-    height: 400px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: space-around;
-    align-items: center;
-    /* flex-wrap: wrap; */
-    border-radius: 20px;
-    padding: 20px;
-}
-
- .formulario {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-
-.login {
-
-    margin-bottom: 20px;
-}
-
-.login input {
-    height: 30px;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.btn-login {
-    display: flex;
-    justify-content: center;
-   
-    
-}
-
-.btn-login button {
-    color: #000;
-    background: #fff;
-    padding: 15px;
-    height: 50px;
-    width: 250px;
-    border-radius: 5px;
-    font-weight: bolder;
-}
-
-.banner-login a {
-    color: white;
-    text-decoration: none;
-}
-
-.banner-login #div_erros_login {
-    margin-top: 15px;
-}
-
-button {
-    cursor: pointer;
-}
-
-.imgDJ {
-    width: 40vw;
-    border-radius: 5px;
-}
-
-/* FIM LOGIN */
-
-/* rodapé */
 
 .footer {
     margin-top: 235px;

@@ -1,77 +1,129 @@
-/* pagina mural */
-
-*, body {
-    font-family: 'Exo 2', sans-serif;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+   
+    
 }
 
-.dash-right .avisos {
+body {
+
+    background-image: url(../assets/imgsW/Afterlife3.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* header */
+.header{
     width: 100%;
-    /* border: 3px solid pink; */
-    color: rgb(216, 216, 216);
-    font-family: 'Exo 2', sans-serif;
+    height: 30vh;
+    background-position: center;
+    
 }
 
-.dash-right .avisos .container {
+.active{
+    font-weight: 600;
+}
+
+nav{
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background: transparent;
+    
+}
+
+.logo{
+    width: 150px;
+    margin: 20px 0;
+    cursor: pointer;
+    color: white;
+    background: transparent;
+}
+
+nav ul {
+    background: transparent;
+    width: 100%;
+    margin-top: 10px;
+    
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 20px 30px;
+    color: #fff;
+    background: transparent;
+    
+}
+
+nav ul li:hover{
+    background: rgba(0, 0, 0, 0.829);
+    padding: 5px;
+    width: 10%;
+    border-radius: 1rem;
+    /* color: #000; */
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+nav ul li a{
+    text-decoration: none;
+    background: transparent;
+    color: #fff;
+}
+.text {
+    padding: 20px 8%;
+}
+
+nav.sticky{
+    position: fixed;
+    /* top: 0; */
+    /* left: 0; */
+    padding: 0.2rem 8%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 1s;
+}
+
+nav.sticky ul {
+    width: auto;
+}
+
+.hello {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hello h3 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.hello h3 span {
+    font-weight: 800;
+}
+
+
+.container {
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.dash-right .avisos .container .div-form {
-    width: 100%;
-}
 
-.dash-right .avisos .container .div-form #form_postagem {
-    width: 100%;
-}
-
-.dash-right .avisos .div-form label {
-    width: 100%;
-}
-
-.dash-right .avisos .div-form input {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.dash-right .avisos .div-form textarea {
-    width: 100%;
-    /* color: #E6005A; */
-    border: 3px solid #E6005A;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.dash-right .avisos .div-form button {
-    cursor: pointer;
-    font-family: 'Exo 2', sans-serif;
-    border: 0;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 10px 15px;
-    color: white;
-    background-color: #E6005A;
-    width: 120px;
-}
-
-.publicacao-btn-editar {
-    cursor: pointer;
-    font-family: 'Exo 2', sans-serif;
-    border: 0;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 5px 8px;
-    color: white;
-    background-color: #E6005A;
-    width: 80px;
-}
 
 .publicacao {
-    height: 30%;
+    margin-top: 200px;
+    height: 60vh;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* align-content: stretch; */
     flex-direction: column;
     justify-content: center;
@@ -81,19 +133,53 @@
     color: #fff;
 }
 
+.btn-user {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 200px;
+    /* margin-bottom: 20px; */
+    background: #000000;
+    border-radius: 50px;
+    border: none;
+    /* padding: 25px; */
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.imgDJ {
+    width: 35vw;
+}
+
+
+.linkSpotify {
+    height: 40px;
+    width: 200px;
+    margin-bottom: 20px;
+    background: #32cd32;
+    border-radius: 50px;
+    border: none;
+    padding: 20px;
+    
+    
+}
+
+.linkSpotify a {
+    text-decoration: none;
+    color: #000;
+    font-weight:700;
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    /* padding: 10px; */
+}
+
 .publicacao>*:not(:last-child) {
     padding: 0 0 10px 0;
 }
 
-.div-results {
-    width: 100%;
-}
-
-.div-results .feed-container {
-    background-color: #212124;
-    border-radius: 5px;
-    margin-bottom: 80px;
-}
 
 .div-buttons {
     display: flex;
@@ -106,9 +192,7 @@
 
 /* pagina graficos */
 
-.dash-header {
-    background-color: #212124;
-}
+
 
 .dash {
     width: 30%;
@@ -126,77 +210,11 @@
     height: 100vh; 
 }
 
-.dash #prefacioDJ {
-    height: 45vh;
-}
 
 
 
-.perigo-frio {
-    background-color: #5C6BC0;
-}
 
-.perigo-quente {
-    background-color: #FF7043;
-}
 
-.alerta-frio {
-    background-color: #42A5F5;
-}
-
-.alerta-quente {
-    background-color: #FFEE58;
-}
-
-.ideal {
-    background-color: #9CCC65;
-}
-
-.item-regua {
-    padding: 5px;
-    width: 15%;
-    margin: 5px;
-    text-align: center;
-    padding-top: 15px;
-}
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 450px;
-    width: 100%;
-    align-items: center;
-    color: white;
-}
-
-.card {
-    margin: 2%;
-    width: 40%;
-    flex-wrap: wrap;
-    display: flex;
-    text-align: center;
-    height: 180px;
-    justify-content: right;
-    background-color: #212124;
-    font-size: 20px;
-}
-
-.card p {
-    margin: 0;
-    font-size: 50px;
-    font-weight: lighter;
-    text-align: left;
-}
-
-.cards h1 {
-    font-size: 22px;
-    width: 100%;
-    border-bottom: solid white 1px;
-    text-align: left;
-    font-weight: lighter;
-    margin: 20px;
-}
 
 
 
@@ -232,12 +250,18 @@
     color: #fff;
 }
 
-.container  {
-
-    height: 50vh;
-    display: flex;
-    flex-direction: column ;
+.footer {
+    margin-top: 235px;
+    background-color: #000;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    display:flex;
     align-items: center;
     justify-content: center;
-    margin-top: 150px;
-} 
+}
+
+.footer .containerFooter {
+    display: flex;
+    justify-content: center;
+}

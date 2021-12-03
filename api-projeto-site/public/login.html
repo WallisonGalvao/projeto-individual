@@ -10,7 +10,7 @@
     <script src="./assets/js/funcoes.js"></script>
 
     <!-- <link rel="icon" href="./assets/icon/favicon.ico"> -->
-    <link rel="stylesheet" href="./css/styleW.css">
+    <link rel="stylesheet" href="./css/styleLogin.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
                 <li ><a href="index.html">HOME</a></li>
                 <li><a href="cadastroW.html">SIGN UP</a></li>
                 <li class="active">SIGN IN</li>
-                <li>CONTACT</li>
+                <li><a href="contato.html">CONTACT</a></li>
             </ul>
         </nav>
 
@@ -41,7 +41,7 @@
     <div class="banner-login">
         <div class="container">
             <div class="card-medio">
-                <h2>Olá de volta!</h2>
+                <h2>LOGIN</h2>
                 <div class="formulario">
                     <form id="form_login" method="post" onsubmit="return entrar()">
                         <div class="login">
@@ -60,7 +60,7 @@
                         <div class="btn-login">
 
                             <button class="btn" type="submit">
-                                Entrar
+                                ENTRAR
                             </button>
                         </div>
                     </form>
@@ -69,12 +69,14 @@
                 </div>
 
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                    <img src="./assets/loading.gif" id="loading-gif">
                 </div>
 
                 <div id="div_erros_login">
 
                 </div>
+
+                <p> Não tem conta? <u><a href="cadastroW.html">Cadastre-se</u></a></p>
             </div>
         </div>
     </div>

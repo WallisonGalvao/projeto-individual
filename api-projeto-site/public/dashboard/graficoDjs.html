@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ's mais populares</title>
+    <title>RANKING WE RAVE</title>
 
 
-    <link rel="stylesheet" href="../css/styleW.css">
+    <!-- <link rel="stylesheet" href="../css/styleW.css"> -->
     <link rel="stylesheet" href="dashboards.css">
     <script src="../assets/js/funcoes.js"></script>
 
@@ -20,7 +20,7 @@
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 </head>
 
-<body onload="usuariosCadastrados()">
+<body onload="usuariosCadastrados(), plotar()">
 
     <div class="header">
 
@@ -31,7 +31,8 @@
                 <li><a href="../index.html">HOME</a></li>
                 <li><a href="../cadastroW.html">SIGN UP</a></li>
                 <li><a href="../login.html">SIGN IN</a></li>
-                <li>CONTACT</li>
+                <li><a href="contato.html">CONTACT</a></li>
+                <li><a href="dashboard.html">BACK</a></li>
                 <li>
                     <div class="btn-logout" onclick="limparSessao()">
                         <h3>SAIR</h3>
@@ -45,10 +46,19 @@
 
     </div>
 
+    
     <div class="container">
+        <div id="qtdUsuarios" class="qtdUsuarios">
+        </div>
 
         <div class="dashDJS" style="width:50vw">
             <canvas id="djsPopulares" ></canvas>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="containerFooter">
+            <h4> WE RAVE &copy; 2021</h4>
         </div>
     </div>
 </body>
@@ -57,7 +67,7 @@
 
 <script>
 
-function usuariosCadastrados() {
+function plotar() {
     
 
 fetch(`/avisos/djsPopulares`, { cache: 'no-store' }).then(function (response) {
@@ -117,7 +127,7 @@ function plotarGrafico(resposta) {
                 stacked: false,
                 title: {
                     display: true,
-                    text: 'Djs mais populares'
+                    text: 'RANKING DO SITE'
                 },
                 scales: {
                     yAxes: [{
@@ -140,6 +150,44 @@ function plotarGrafico(resposta) {
         });
 
         
+    }
+
+    function usuariosCadastrados() {
+
+
+fetch(`/avisos/cadastros`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            for (i = 0; i < resposta.length; i++) {
+                var registro = resposta[i];
+                
+                qtdUsuarios.innerHTML = "<b>Usuários cadastrados: </b>" + registro.qtd_usuarios;
+            };
+        })
+} else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+}
+
+    var navbar = document.getElementById("navbar");
+    var menu = document.getElementById("menu");
+
+    window.onscroll = function () {
+        if (window.pageYOffset >= menu.offsetTop) {
+
+            navbar.classList.add("sticky");
+        }
+        else {
+            navbar.classList.remove("sticky");
+        }
     }
 
     

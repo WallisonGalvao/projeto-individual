@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WE RAVE</title>
 
-    <link rel="stylesheet" href="../css/styleW.css">
+    <!-- <link rel="stylesheet" href="../css/styleW.css"> -->
     <link rel="stylesheet" href="dashboards.css">
     <script src="../assets/js/funcoes.js"></script>
+    <!-- <script src="../assets/js/login.js"></script> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +22,9 @@
 
 </head>
 
-<body onload="validarSessao(), usuariosCadastrados()">
+<body onload="validarSessao(), atualizarFeed()">
     <div class="header">
+
 
         <nav id="navbar">
             <img src="../assets/imgsW/WeRaveLogo.png" alt="" class="logo">
@@ -31,41 +33,38 @@
                 <li><a href="../index.html">HOME</a></li>
                 <li><a href="../cadastroW.html">SIGN UP</a></li>
                 <li><a href="../login.html">SIGN IN</a></li>
-                <li>CONTACT</li>
+                <li><a href="contato.html">CONTACT</a></li>
                 <li>
                     <div class="btn-logout" onclick="limparSessao()">
                         <h3>SAIR</h3>
                     </div>
                 </li>
             </ul>
-
-
         </nav>
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario"></span>!</h3>
+        </div>
 
 
+    </div>
+
+    <div class="container">
+
+        <a href="graficoDjs.html">
+
+            <button class="btn-user">Ranking</button>
+        </a>
+        <div id="djs" class="djs">
+
+
+            <!-- <button onclick="atualizarFeed()" class="btn-user">Mostrar informações do DJ</button> -->
+            <!--<img id="imagem" src="" alt=""> !-->
+        </div>
     </div>
 
 
 
 
-
-
-
-    </div>
-
-    <div id="qtdUsuarios" class="qtdUsuarios">
-    </div>
-
-    <a href="graficoDjs.html">
-
-        <button>Gráfico</button>
-    </a>
-    <div id="djs" class="djs">
-
-
-        <button onclick="atualizarFeed()">Mostrar informações do DJ</button>
-        <!--<img id="imagem" src="" alt=""> !-->
-    </div>
 
     <div class="footer">
         <div class="containerFooter">
@@ -143,79 +142,79 @@
 
                         if (publicacao.idDJ == 1) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso'>Spotify</a>";
+                                "<a href='https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso'>Spotify</a>";
                             imagemDJ.src = "../assets/imgs-djs/charlotteDeWitte.jpg"
                         } else if (publicacao.idDJ == 2) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/5Ho1vKl1Uz8bJlk4vbmvmf'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/5Ho1vKl1Uz8bJlk4vbmvmf'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/amelieLens.png";
                         } else if (publicacao.idDJ == 3) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/1UL813H5aj3e8ekE5RqWqc'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/1UL813H5aj3e8ekE5RqWqc'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/taleOfUs.jpg";
                         } else if (publicacao.idDJ == 4) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/3BkRu2TGd2I1uBxZKddfg1'>Spotify</a>"
-                            imagemDJ.src = "../assets/imgs-djs/artbat.jpeg";
+                                "<a href='https://open.spotify.com/artist/3BkRu2TGd2I1uBxZKddfg1'>Spotify</a>"
+                            imagemDJ.src = "../assets/imgs";
                         } else if (publicacao.idJ == 5) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/6QSwQEz8CDMg8Rqk8dEkxS'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/6QSwQEz8CDMg8Rqk8dEkxS'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/mathame.jpg";
                         } else if (publicacao.idDJ == 6) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/50Lr1puweM1hFsF1LpIZLM'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/50Lr1puweM1hFsF1LpIZLM'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/whoMadeWho.jpg";
                         } else if (publicacao.idDJ == 7) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/6caPJFLv1wesmM7gwK1ACy'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/6caPJFLv1wesmM7gwK1ACy'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/borisBrejcha.jpg";
                         } else if (publicacao.idDJ == 8) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/4SxTtbkEKXwyhltXD7tnYQ'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/4SxTtbkEKXwyhltXD7tnYQ'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/Hozho.jpg";
                         } else if (publicacao.idDJ == 9) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/4admDxmnri5Zco0xYrJ0ji'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/4admDxmnri5Zco0xYrJ0ji'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/JamieJones.jpeg";
                         } else if (publicacao.idDJ == 10) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/4cvdQRyHmkSQSakUrW2oxv'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/4cvdQRyHmkSQSakUrW2oxv'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/MichaelBibi.jpg";
                         } else if (publicacao.idDJ == 11) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/1VJ0briNOlXRtJUAzoUJdt'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/1VJ0briNOlXRtJUAzoUJdt'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/fisher.jpg";
                         } else if (publicacao.idDJ == 12) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/martinGarrix.jpg";
                         } else if (publicacao.idDJ == 13) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/5wJK4kQAkVGjqM9x46KQOC'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/5wJK4kQAkVGjqM9x46KQOC'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/solomun.jpeg";
                         } else if (publicacao.idDJ == 14) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/1oZmFNkGAT93yD1xX4vTRE'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/1oZmFNkGAT93yD1xX4vTRE'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/ninaKraviz.jpg";
                         } else if (publicacao.idDJ == 15) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/5he5w2lnU9x7JFhnwcekXX'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/skrillex.jpg";
                         } else if (publicacao.idDJ == 16) {
                             botaoLink.innerHTML =
-                               "<a href='https://soundcloud.com/borgore'>SoundCloud</a>"
+                                "<a href='https://soundcloud.com/borgore'>SoundCloud</a>"
                             imagemDJ.src = "../assets/imgs-djs/Borgore.jpg";
                         } else if (publicacao.idDJ == 17) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/5X3rdmEE2Mif6kFQkb2PxB'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/5X3rdmEE2Mif6kFQkb2PxB'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/neelix.jpg";
                         } else if (publicacao.idDJ == 18) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/2o5jDhtHVPhrJdv3cEQ99Z'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/2o5jDhtHVPhrJdv3cEQ99Z'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/Tiesto.jpg";
                         } else if (publicacao.idDJ == 19) {
                             botaoLink.innerHTML =
-                               "<a href='https://open.spotify.com/artist/0NGAZxHanS9e0iNHpR8f2W'>Spotify</a>"
+                                "<a href='https://open.spotify.com/artist/0NGAZxHanS9e0iNHpR8f2W'>Spotify</a>"
                             imagemDJ.src = "../assets/imgs-djs/alok.jpg";
                         }
 
@@ -247,37 +246,12 @@
 
     // // altere aqui como os dados serão exibidos
     // // e como são recuperados do BackEnd
-    function usuariosCadastrados() {
-
-
-        fetch(`/avisos/cadastros`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    for (i = 0; i < resposta.length; i++) {
-                        var registro = resposta[i];
-                        
-                        qtdUsuarios.innerHTML = "Usuários cadastrados: " + registro.qtd_usuarios;
-                    };
-                })
-        } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-
-    }
-
 
 
 
 
     // só altere aqui se souber o que está fazendo!
-    
+
 
     var navbar = document.getElementById("navbar");
     var menu = document.getElementById("menu");
