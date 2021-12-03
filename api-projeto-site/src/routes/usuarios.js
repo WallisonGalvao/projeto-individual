@@ -22,4 +22,6 @@ router.post("/autenticar", function(req, res) {
 router.get("/buscar/:idUsuario ", function(req, res) {
     usuarioController.buscar(req, res);
 })
+
+
 module.exports = router;
