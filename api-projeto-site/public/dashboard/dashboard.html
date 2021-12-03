@@ -84,6 +84,7 @@
     function atualizarFeed() {
         // aguardar();
         var idUsuario = sessionStorage.ID_USUARIO;
+        var nomeUsuario = sessionStorage.NOME_USUARIO;
         fetch(`/avisos/listar/${idUsuario}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -155,7 +156,7 @@
                         } else if (publicacao.idDJ == 4) {
                             botaoLink.innerHTML =
                                 "<a href='https://open.spotify.com/artist/3BkRu2TGd2I1uBxZKddfg1'>Spotify</a>"
-                            imagemDJ.src = "../assets/imgs";
+                            imagemDJ.src = "../assets/imgsW/artbatRio.jpg";
                         } else if (publicacao.idJ == 5) {
                             botaoLink.innerHTML =
                                 "<a href='https://open.spotify.com/artist/6QSwQEz8CDMg8Rqk8dEkxS'>Spotify</a>"
